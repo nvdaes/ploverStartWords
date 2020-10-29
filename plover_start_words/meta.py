@@ -9,7 +9,7 @@ from plover.formatting import _Context, _Action
 
 
 DELIM_ARGS = " | "
-PREFIXES = ("","in", "pre", "pro", "re")
+PREFIXES = ("", "in", "pre", "pro", "re")
 
 def initial(context: _Context, args: str) -> _Action:
 	'''
