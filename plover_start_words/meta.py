@@ -40,7 +40,7 @@ def initial(context: _Context, args: str) -> _Action:
 		if output == prefix:
 			action.text = args.split(DELIM_ARGS)[0]
 			return action
-	if action.prev_attach:
+	if action.prev_attach and action.next_case is None:
 		action.text = args.split(DELIM_ARGS)[-1]
 	else:
 		action.text = args.split(DELIM_ARGS)[0]
