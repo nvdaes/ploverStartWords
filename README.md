@@ -4,13 +4,12 @@ This plugin provides a meta for Plover, so we can choose the output produced dep
 
 ## Usage ##
 
-```
 
 # initial.json
 {
-	"STROke": "{:initial:textStartingNextWord | textFollowingPreviousFragment}"
+"STROke": "{:initial:textStartingNextWord | textFollowingPreviousFragment}"
 
-	...
+...
 }
 
-```
+
