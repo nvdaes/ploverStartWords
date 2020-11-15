@@ -1,9 +1,10 @@
-# Plover Start words
+# Plover Start words #
 
 This plugin provides a meta for Plover, so we can choose the output produced deppending on the last typed text.
 
 ## Usage ##
 
+```
 
 # initial.json
 {
@@ -12,4 +13,29 @@ This plugin provides a meta for Plover, so we can choose the output produced dep
 ...
 }
 
+```
 
+## API ##
+
+API can be manipulated via [Python dictionaries](https://github.com/benoit-pierre/plover_python_dictionary).
+
+For example:
+
+```
+
+# single.py
+from plover_start_words import meta
+
+meta.prefixes = ("", "foo", "var")
+
+LONGEST_KEY = 1
+
+
+def lookup(key):
+	raise KeyError
+
+```
+
+## Versioning ##
+
+We use [SemVer](https://semver.org/).

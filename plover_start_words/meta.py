@@ -3,19 +3,19 @@ Functionality to start words in Plover.
 '''
 
 from typing import List
-
 from plover.translation import Translation
 from plover.formatting import _Context, _Action
 
-
 DELIM_ARGS = " | "
-PREFIXES = (
+
+prefixes = (
 	"", "-", "?", "(", "'", "/", "@", "\"",
 	"ante", "anti", "auto", "bi", "des", "dis", "eco", "equi", "extra",
 	"hidro", "in", "inter", "macro", "micro", "multi",
 	"pre", "pro", "psico", "re",
 	"socio", "sub", "super", "tecno", "tiflo"
 )
+
 
 def initial(context: _Context, args: str) -> _Action:
 	'''
@@ -42,7 +42,7 @@ def initial(context: _Context, args: str) -> _Action:
 
 	# Create the new action
 	action: _Action = context.new_action()
-	for prefix in PREFIXES:
+	for prefix in prefixes:
 		if output == prefix:
 			action.text = args.split(DELIM_ARGS)[0]
 			return action
