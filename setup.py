@@ -10,7 +10,7 @@ setup(
 	author='Noelia Ruiz',
 	author_email='nrm1977@gmail.com',
 	license='GNU General Public License v3 or later (GPLv3+)',
-	url='https://github.com/nvdaes/plover_start_words'
+	url='https://github.com/nvdaes/plover_start_words',
 	classifiers=[
 		'Development Status :: 1 - Planning',
 		'Environment :: Plugins',
