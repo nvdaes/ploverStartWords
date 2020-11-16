@@ -1,18 +1,11 @@
-Plover Start words
-##################
+Spanish support for Plover
+##########################
 
-This plugin provides a meta for Plover, so we can choose the output produced deppending on the last typed text.
+*	Authors: Sonsoles García Martín, Noelia Ruiz Martínez
 
-Usage
-*****
+Plover support for Melani system in Spanish, used at MQD.
 
-# initial.json
-{
-"STROke": "{:initial:textStartingNextWord | textFollowingPreviousFragment}"
-
-...
-}
-
+Based on this `template <https://github.com/benoit-pierre/plover_template_system>`_
 
 API
 ***
@@ -22,16 +15,29 @@ API can be manipulated via `Python dictionaries <https://github.com/benoit-pierr
 For example:
 
 # single.py
-from plover_start_words import meta
+from plover_spanish_mqd.dictionaries import spanish_mqd_single
 
-meta.prefixes = ("", "foo", "var")
+LONGEST_KEY = spanish_mqd_single.LONGEST_KEY
 
-LONGEST_KEY = 1
+
+dict = {
+	"STROKe": ("translationIfPresedAlone", "translationMayBeSubsetOfWiderStroke"),
+	"N": ("en ", "n"),
+	"A": ("", "a"),
+	"a": ("", "a ")
+}
+
+spanish_mqd_single.dict = dict
 
 
 def lookup(key):
-	raise KeyError
+	return spanish_mqd_single.lookup(key)
 
+Dependencies
+************
+
+* `Plover Python dictionary <https://github.com/benoit-pierre/plover_python_dictionary>`_
+* `Plover Start words <https://github.com/nvdaes/plover_start_words>`_
 
 Versioning
 **********
