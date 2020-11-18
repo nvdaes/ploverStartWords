@@ -9,7 +9,7 @@ from plover.formatting import _Context, _Action
 DELIM_ARGS = " | "
 
 prefixes = (
-	"", "-", "?", "?", "(", "'", "/", "@", "\"",
+	"", "-", "¿", "?", "(", "'", "/", "@", "\"",
 	"ante", "anti", "auto", "bi", "des", "dis", "eco", "equi", "extra",
 	"hidro", "in", "inter", "macro", "micro", "multi",
 	"pre", "pro", "psico", "re",
