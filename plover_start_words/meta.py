@@ -47,7 +47,7 @@ def initial(context: _Context, args: str) -> _Action:
 
 	translation = translations[-1]
 	stroke = translation.strokes[0]
-	if cancelPrefixKey in stroke:
+	if stroke.endswith(cancelPrefixKey):
 		action.text = args.split(DELIM_ARGS)[-1]
 		return action
 	for prefix in prefixes:
