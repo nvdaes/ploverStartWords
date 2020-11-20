@@ -45,9 +45,13 @@ def initial(context: _Context, args: str) -> _Action:
 	# Create the new action
 	action: _Action = context.new_action()
 
+	if output == "":
+		action.text = args.split(DELIM_ARGS)[-1]
+		return action
+
 	translation = translations[-1]
 	stroke = translation.strokes[0]
-	if output != "" and cancelPrefixKey in stroke.steno_keys:
+	if cancelPrefixKey in stroke.steno_keys:
 		action.text = args.split(DELIM_ARGS)[-1]
 		return action
 	for prefix in prefixes:
