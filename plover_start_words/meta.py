@@ -47,7 +47,7 @@ def initial(context: _Context, args: str) -> _Action:
 
 	translation = translations[-1]
 	stroke = translation.strokes[0]
-	if cancelPrefixKey in stroke.steno_keys:
+	if output != "" and cancelPrefixKey in stroke.steno_keys:
 		action.text = args.split(DELIM_ARGS)[-1]
 		return action
 	for prefix in prefixes:
