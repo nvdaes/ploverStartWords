@@ -9,13 +9,15 @@ from plover.formatting import _Context, _Action
 DELIM_ARGS = " | "
 
 prefixes = (
-	"", "-", "¿", "¡", "(", "'", "/", "@", "\"",
+	"", "“", "-", "¿", "¡", "(", "'", "/", "@", "\"",
 	"ante", "anti", "auto", "bi", "des", "dis", "eco", "equi", "extra",
 	"hidro", "in", "inter", "macro", "micro", "multi",
 	"pre", "pro", "psico", "re",
-	"socio", "sub", "super", "tecno", "tiflo"
+	"socio", "sub", "super", "tecno", "tiflo",
+	"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
 )
 
+cancelPrefixKey = "#"
 
 def initial(context: _Context, args: str) -> _Action:
 	'''
@@ -42,6 +44,12 @@ def initial(context: _Context, args: str) -> _Action:
 
 	# Create the new action
 	action: _Action = context.new_action()
+
+	translation = translations[-1]
+	stroke = translation.strokes[0]
+	if cancelPrefixKey in stroke:
+		action.text = args.split(DELIM_ARGS)[-1]
+		return action
 	for prefix in prefixes:
 		if output == prefix:
 			action.text = args.split(DELIM_ARGS)[0]
