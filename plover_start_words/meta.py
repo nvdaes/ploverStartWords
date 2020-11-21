@@ -8,6 +8,7 @@ from plover.formatting import _Context, _Action
 
 DELIM_ARGS = " | "
 ATTACH = "{^}"
+GLUE = "{&}"
 
 prefixes = (
 	"“", "-", "¿", "¡", "(", "'", "/", "@", "\"",
@@ -41,12 +42,12 @@ def initial(context: _Context, args: str) -> _Action:
 			try:
 				output = output + action.text
 			except:
-				output = ""
+				output = ''
 
 	# Create the new action
 	action: _Action = context.new_action()
 
-	if output == "":
+	if output == '':
 		action.text = args.split(DELIM_ARGS)[0].replace(ATTACH, '')
 		if args.split(DELIM_ARGS)[0].endswith(ATTACH):
 			action.next_attach = True
