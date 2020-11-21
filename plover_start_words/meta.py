@@ -7,9 +7,10 @@ from plover.translation import Translation
 from plover.formatting import _Context, _Action
 
 DELIM_ARGS = " | "
+ATTACH = "{^}"
 
 prefixes = (
-	"", "“", "-", "¿", "¡", "(", "'", "/", "@", "\"",
+	"“", "-", "¿", "¡", "(", "'", "/", "@", "\"",
 	"ante", "anti", "auto", "bi", "des", "dis", "eco", "equi", "extra",
 	"hidro", "in", "inter", "macro", "micro", "multi",
 	"pre", "pro", "psico", "re",
@@ -46,20 +47,30 @@ def initial(context: _Context, args: str) -> _Action:
 	action: _Action = context.new_action()
 
 	if output == "":
-		action.text = args.split(DELIM_ARGS)[-1]
+		action.text = args.split(DELIM_ARGS)[0].replace(ATTACH, '')
+		if args.split(DELIM_ARGS)[0].endswith(ATTACH):
+			action.next_attach = True
 		return action
 
 	translation = translations[-1]
 	stroke = translation.strokes[0]
 	if cancelPrefixKey in stroke.steno_keys:
-		action.text = args.split(DELIM_ARGS)[-1]
+		action.text = args.split(DELIM_ARGS)[-1].replace(ATTACH, '')
+		if args.split(DELIM_ARGS)[-1].endswith(ATTACH):
+			action.next_attach = True
 		return action
 	for prefix in prefixes:
 		if output == prefix:
-			action.text = args.split(DELIM_ARGS)[0]
+			action.text = args.split(DELIM_ARGS)[0].replace(ATTACH, '')
+			if args.split(DELIM_ARGS)[0].endswith(ATTACH):
+				action.next_attach = True
 			return action
 	if action.prev_attach and action.next_case is None:
-		action.text = args.split(DELIM_ARGS)[-1]
+		action.text = args.split(DELIM_ARGS)[-1].replace(ATTACH, '')
+		if args.split(DELIM_ARGS)[-1].endswith(ATTACH):
+			action.next_attach = True
 	else:
-		action.text = args.split(DELIM_ARGS)[0]
+		action.text = args.split(DELIM_ARGS)[0].replace(ATTACH, '')
+		if args.split(DELIM_ARGS)[0].endswith(ATTACH):
+			action.next_attach = True
 	return action
