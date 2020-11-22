@@ -37,3 +37,8 @@ Versioning
 **********
 
 We use `SemVer <https://semver.org/>`_
+
+Changes
+*******
+
+`Changelog <https://github.com/nvdaes/plover_start_words/blob/master/CHANGELOG.md>`_

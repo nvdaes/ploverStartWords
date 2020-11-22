@@ -39,3 +39,7 @@ def lookup(key):
 ## Versioning ##
 
 We use [SemVer](https://semver.org/).
+
+## Changes ##
+
+[Changelog](https://github.com/nvdaes/plover_start_words/blob/master/CHANGELOG.md)
