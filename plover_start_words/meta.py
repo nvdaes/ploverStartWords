@@ -54,7 +54,7 @@ def initial(context: _Context, args: str) -> _Action:
 
 	translation = translations[-1]
 	stroke = translation.strokes[0]
-	if cancelPrefixKey in stroke.steno_keys:
+	if cancelPrefixKey in stroke.steno_keys and not output.isdigit():
 		action.text = args.split(DELIM_ARGS)[-1].replace(ATTACH, '')
 		if args.split(DELIM_ARGS)[-1].endswith(ATTACH):
 			action.next_attach = True
@@ -64,8 +64,6 @@ def initial(context: _Context, args: str) -> _Action:
 			action.text = args.split(DELIM_ARGS)[0].replace(ATTACH, '')
 			if args.split(DELIM_ARGS)[0].endswith(ATTACH):
 				action.next_attach = True
-			elif action.text.isdigit() and output.isdigit():
-				action.prev_attach = True
 			return action
 	if action.prev_attach and action.next_case is None:
 		action.text = args.split(DELIM_ARGS)[-1].replace(ATTACH, '')

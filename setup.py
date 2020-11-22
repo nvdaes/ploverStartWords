@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
 	name='plover_start_words',
-	version='0.0.13',
+	version='0.0.14',
 	description='Plugins for assigning strokes to different output if it starts or not a word',
 	long_description='file: README.md',
 	author='Noelia Ruiz',
