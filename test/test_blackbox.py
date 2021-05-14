@@ -85,3 +85,13 @@ class TestsBlackbox:
 			  *		 ' jueg'
 		Astpo  ' jugando'
 		'''
+
+	def test_start_word(self):
+		r'''
+		"*": "=undo",
+
+		CNRca  ' mucha'
+		RE	' mucha re'
+		CNRca	' mucha remucha'
+		A	' aremucha'
+	'''
