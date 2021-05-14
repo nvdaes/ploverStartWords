@@ -2,8 +2,6 @@
 
 This plugin provides a meta for Plover, so we can choose the output produced deppending on the last typed text.
 
-Based on plugins like [plover_merge_words](https://github.com/morinted/plover_merge_words).
-
 ## Usage ##
 
 ```
