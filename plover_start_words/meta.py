@@ -20,6 +20,7 @@ prefixes = (
 
 cancelPrefixKey = "#"
 
+
 def initial(context: _Context, args: str) -> _Action:
 	'''
 	Meta to start a word in Plover.
@@ -40,7 +41,7 @@ def initial(context: _Context, args: str) -> _Action:
 		for action in actions:
 			try:
 				output = output + action.text
-			except:
+			except Exception:
 				output = ''
 
 	# Create the new action
